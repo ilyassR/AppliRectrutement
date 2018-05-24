@@ -9,5 +9,7 @@ export const environment = {
   default_home_label : 'Home',
   default_home_menu_result : 'Resultats',
   default_home_menu_candidats : 'Candidats',
-  default_home_menu_tests : 'Questionnaires'
+  default_home_menu_tests : 'Questionnaires',
+  default_home_menu_deco : 'Déconnection',
+  default_home_footer : 'Suivez-nous !'
 };
