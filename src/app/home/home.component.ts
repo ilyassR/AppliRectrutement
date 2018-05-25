@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { environment } from '../../environments/environment';
 
 
@@ -18,7 +19,6 @@ export class HomeComponent implements OnInit {
     imageRecrute = require('assets/images/recrute.jpg');
     imageCanvas2 = require('assets/images/canvas2.png');
     imageCanvas = require('assets/images/canvas.png');
-    imageLogo = require('assets/images/logo.png');
     imageLogoFB = require('assets/images/logo_fb.png');
     imageLogoTwitter = require('assets/images/logo_twitter.png');
     imageLogoLinkedin = require('assets/images/logo_linkedin.png');

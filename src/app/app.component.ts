@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
 
+declare function require(path: string);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,4 +14,6 @@ export class AppComponent {
     private msgHomeMenuCandidats = environment.default_home_menu_candidats;
     private msgHomeMenuTests = environment.default_home_menu_tests;
     private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
+
+    imageLogo = require('assets/images/logo.png');
 }

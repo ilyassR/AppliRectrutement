@@ -1,0 +1,75 @@
+<!--
+<div datatable class="row-border hover" style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+    <data-table id="candidats-grid"
+        headerTitle="Candidats"
+        [items]="items"
+        [itemCount]="itemCount"
+        (reload)="reloadItems($event)"
+
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        [rowTooltip]="rowTooltip"
+        >
+        <data-table-column
+            [property]="'id'"
+            [header]="'Id'"
+            [visible]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'pseudo'"
+            [header]="'Pseudo'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'nom'"
+            [header]="'nom'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            property="prenom"
+            header="Prénom"
+            width="150px">
+        </data-table-column>
+        <data-table-column
+            [property]="'email'"
+            [header]="'Email'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'telephone'"
+            [header]="'Téléphone'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+    </data-table>
+</div>
+
+-->
+
+<table datatable class="row-border hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Pseudo</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>Téléphone {{candidats[0].nom}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <li *ngFor="let candidat of candidats">
+        <tr>
+            <td>{{candidat.id}}</td>
+            <td>{{candidat.id}}</td>
+            <td>{{candidat.id}}</td>
+            <td>{{candidat.id}}</td>
+            <td>{{candidat.id}}</td>
+            <td>{{candidat.id}}</td>
+        </tr>
+    </li>
+  </tbody>
+</table>
