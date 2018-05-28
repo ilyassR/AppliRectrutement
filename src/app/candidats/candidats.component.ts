@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Subject } from 'rxjs';
+
+import 'rxjs/add/operator/map';
+
 import { DataTableResource } from 'angular5-data-table';
 
+import { CandidatService } from '../candidat.service';
 import { Candidat } from '../candidat';
 import { CANDIDATS } from '../mock-candidats';
 
@@ -10,36 +16,36 @@ import { CANDIDATS } from '../mock-candidats';
   styleUrls: ['./candidats.component.css']
 })
 export class CandidatsComponent implements OnInit {
-
   candidats: Candidat[];
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<Candidat> = new Subject();
+
+  constructor(private candidatService:CandidatService ,private http: Http) { }
 
   ngOnInit(){
-    this.candidats = CANDIDATS;
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
+
+    this.candidatService.getCandidats().subscribe(result => {
+        this.candidats = result;
+        this.dtTrigger.next();
+      });
+    /*
+    this.http.get('data/data.json')
+      .map(this.extractData)
+      .subscribe(candidats => {
+        this.candidats = candidats;
+        // Calling the DT trigger to manually render the table
+        this.dtTrigger.next();
+      });
+      */
   }
 
-  itemResource = new DataTableResource(CANDIDATS);
-    items = [];
-    itemCount = 0;
-
-  constructor() { 
-    console.log(CANDIDATS.length);
-    this.itemResource.count().then(count => this.itemCount = count);
-   }
-
-   reloadItems(params) {
-        this.itemResource.query(params).then(items => this.items = items);
-    }
-
-    // special properties:
-
-    rowClick(rowEvent) {
-        console.log('Clicked: ' + rowEvent.row.item.name);
-    }
-
-    rowDoubleClick(rowEvent) {
-        alert('Double clicked: ' + rowEvent.row.item.name);
-    }
-
-    rowTooltip(item) { return item.jobTitle; }
-
+  private extractData(res: Response) {
+    const body = res.json();
+    return body.data || {};
+  }
 }

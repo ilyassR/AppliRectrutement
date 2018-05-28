@@ -48,8 +48,8 @@
 </div>
 
 -->
-
-<table datatable class="row-border hover">
+<div class="mt-4">
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -57,19 +57,18 @@
       <th>Nom</th>
       <th>Prénom</th>
       <th>Email</th>
-      <th>Téléphone {{candidats[0].nom}}</th>
+      <th>Téléphone</th>
     </tr>
   </thead>
   <tbody>
-    <li *ngFor="let candidat of candidats">
-        <tr>
+    <tr *ngFor="let candidat of candidats">
             <td>{{candidat.id}}</td>
-            <td>{{candidat.id}}</td>
-            <td>{{candidat.id}}</td>
-            <td>{{candidat.id}}</td>
-            <td>{{candidat.id}}</td>
-            <td>{{candidat.id}}</td>
-        </tr>
-    </li>
+            <td>{{candidat.pseudo}}</td>
+            <td>{{candidat.nom}}</td>
+            <td>{{candidat.prenom}}</td>
+            <td>{{candidat.email}}</td>
+            <td>{{candidat.telephone}}</td>
+    </tr>
   </tbody>
 </table>
+</div>
