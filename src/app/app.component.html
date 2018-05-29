@@ -1,22 +1,74 @@
 <div class="container">
-<div id="grailsLogo" role="banner">
-  <a href="http://cgi.com"><img src="{{imageLogo}}"/></a>
+    <div class="card">
+    <div class="card-body">
+    <div id="grailsLogo" role="banner">
+        <a href="http://cgi.com"><img src="{{imageLogo}}" /></a>
+    </div>
+    <nav>
+        <a routerLink="/home">{{msgHomeLabel}}</a>
+        <!-- Add if ROLE_ADMIN condition -->
+        <a routerLink="/candidats">{{msgHomeMenuCandidats}}</a>
+        <a routerLink="/resultat">{{msgHomeMenuResult}}</a>
+        <a routerLink="/Tests">{{msgHomeMenuTests}}</a>
+        <!-- Add if ROLE_CANDIDAT condition -->
+        <a routerLink="/Tests">{{msgHomeMenuTests}}</a>
+        <!-- Add if ROLE_CORRECTEUR condition -->
+        <a routerLink="/resultat">Correction</a>
+
+
+        <a routerLink="/deconnexion">{{msgHomeMenuDeconnexion}}</a>
+        <a routerLink="/aide">Aide</a>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+
+        <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">{{msgHomeFooter}}</h5>
+            </li>
+        </ul>
+        <!-- Call to action -->
+
+        <hr>
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1">
+                    <i class="inline"><a target="_blank" title="Facebook" href="http://facebook.com/cgifrance"><img src="{{imageLogoFB}}" alt="Facebook" /></a></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1">
+                    <i class="inline"><a target="_blank" title="Twitter" href="http://twitter.com/CGI_FR"><img src="{{imageLogoTwitter}}" alt="Twitter" /></a></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-gplus mx-1">
+                    <i class="inline"><a target="_blank" title="Linkedin" href="http://www.linkedin.com/company/cgi?trk=biz-companies-cym"><img src="{{imageLogoLinkedin}}" alt="Linkedin" /></a></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-li mx-1">
+                    <i class="inline"><a target="_blank" title="Youtube" href="https://www.youtube.com/cgifrance_tv"><img src="{{imageLogoYoutube}}" alt="Youtube" /></a></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-li mx-1">
+                    <i class="inline"><a target="_blank" title="RSS" href="http://www.cgi.com/fr/fils-rss-balados"><img src="{{imageLogoRss}}" alt="RSS" /></a></i>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/bootstrap-tutorial/"> cgi.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </div>
-<nav>
-    <a routerLink="/home">{{msgHomeLabel}}</a>
-<!-- Add if ROLE_ADMIN condition -->
-    <a routerLink="/candidats">{{msgHomeMenuCandidats}}</a>
-    <a routerLink="/resultat">{{msgHomeMenuResult}}</a>
-    <a routerLink="/Tests">{{msgHomeMenuTests}}</a>
-<!-- Add if ROLE_CANDIDAT condition -->
-    <a routerLink="/Tests">{{msgHomeMenuTests}}</a>
-<!-- Add if ROLE_CORRECTEUR condition -->
-    <a routerLink="/resultat">Correction</a>
-
-
-    <a routerLink="/deconnexion">{{msgHomeMenuDeconnexion}}</a>
-    <a routerLink="/aide">Aide</a>
-</nav>
-
-<router-outlet></router-outlet>
+    </div>
 </div>

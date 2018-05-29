@@ -14,6 +14,13 @@ export class AppComponent {
     private msgHomeMenuCandidats = environment.default_home_menu_candidats;
     private msgHomeMenuTests = environment.default_home_menu_tests;
     private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
+    private msgHomeFooter = environment.default_home_footer;
+
+    imageLogoTwitter = require('assets/images/logo_twitter.png');
+    imageLogoLinkedin = require('assets/images/logo_linkedin.png');
+    imageLogoYoutube = require('assets/images/logo_youtube.png');
+    imageLogoRss = require('assets/images/logo_rss.png');
+    imageLogoFB = require('assets/images/logo_fb.png');
 
     imageLogo = require('assets/images/logo.png');
 }

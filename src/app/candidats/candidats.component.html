@@ -48,7 +48,11 @@
 </div>
 
 -->
-<div class="mt-4">
+
+<br/>
+<button type="button" class="btn btn-success" (click)="newCandidatFrom()"><i class="fa fa-user fa-fw"></i> Créer un candidat</button>
+
+<div class="mt-4" *ngIf="!displayCandidatForm">
 <table datatable [dtOptions]="dtOptions" class="row-border hover">
   <thead>
     <tr>
@@ -72,3 +76,5 @@
   </tbody>
 </table>
 </div>
+
+<app-candidat-form [showMePartially]="displayCandidatForm"></app-candidat-form>

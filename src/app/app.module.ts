@@ -13,13 +13,15 @@ import { CandidatService } from './candidat.service';
 
 import { DataTableModule } from 'angular5-data-table';
 import { DataTablesModule } from 'angular-datatables';
+import { CandidatFormComponent } from './candidat-form/candidat-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CandidatsComponent
+    CandidatsComponent,
+    CandidatFormComponent
   ],
   imports: [
     BrowserModule,

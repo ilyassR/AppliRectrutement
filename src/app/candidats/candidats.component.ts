@@ -20,6 +20,12 @@ export class CandidatsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<Candidat> = new Subject();
 
+  displayCandidatForm: boolean = false;
+
+  newCandidatFrom(){
+    this.displayCandidatForm = !this.displayCandidatForm;
+  }
+
   constructor(private candidatService:CandidatService ,private http: Http) { }
 
   ngOnInit(){
