@@ -1,0 +1,55 @@
+<div class="container" *ngIf="showMePartially">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Nouveau Questionnaire !</h5>
+					<form class="form-horizontal" method="post" action="#">
+
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Description *</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-align-center fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="description" id="description"  placeholder="Description test"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Nom du test *</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-text-width fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="test" id="test"  placeholder="Nom test"/>
+								</div>
+							</div>
+						</div>
+
+            <div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Limite de temps *</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="limite" id="limite"  placeholder="Limite de temps test"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Maximum de Points *</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-star" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="maximumPoint" id="maximumPoint"  placeholder="Maximum de points test"/>
+								</div>
+							</div>
+						</div>
+
+						
+						<div class="form-group ">
+							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Créer</a>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>

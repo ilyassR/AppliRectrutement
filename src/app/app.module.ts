@@ -14,6 +14,11 @@ import { CandidatService } from './candidat.service';
 import { DataTableModule } from 'angular5-data-table';
 import { DataTablesModule } from 'angular-datatables';
 import { CandidatFormComponent } from './candidat-form/candidat-form.component';
+import { ResultatComponent } from './resultat/resultat.component';
+import { ResultatService } from './resultat.service';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { QuestionnaireService } from './questionnaire.service';
+import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component';
 
 
 @NgModule({
@@ -21,7 +26,10 @@ import { CandidatFormComponent } from './candidat-form/candidat-form.component';
     AppComponent,
     HomeComponent,
     CandidatsComponent,
-    CandidatFormComponent
+    CandidatFormComponent,
+    ResultatComponent,
+    QuestionnaireComponent,
+    QuestionnaireFormComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,7 @@ import { CandidatFormComponent } from './candidat-form/candidat-form.component';
     HttpClientModule,
     HttpModule
   ],
-  providers: [CandidatService],
+  providers: [CandidatService, ResultatService, QuestionnaireService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
