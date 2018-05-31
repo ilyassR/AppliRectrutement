@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -19,6 +20,7 @@ import { ResultatService } from './resultat.service';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { QuestionnaireService } from './questionnaire.service';
 import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component';
+import { AideComponent } from './aide/aide.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-f
     CandidatFormComponent,
     ResultatComponent,
     QuestionnaireComponent,
-    QuestionnaireFormComponent
+    QuestionnaireFormComponent,
+    AideComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-f
     DataTableModule,
     DataTablesModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    PdfViewerModule
   ],
   providers: [CandidatService, ResultatService, QuestionnaireService],
   bootstrap: [AppComponent]
