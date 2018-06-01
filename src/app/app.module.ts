@@ -21,6 +21,8 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { QuestionnaireService } from './questionnaire.service';
 import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component';
 import { AideComponent } from './aide/aide.component';
+import { AlertComponent } from './alert/alert.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { AideComponent } from './aide/aide.component';
     ResultatComponent,
     QuestionnaireComponent,
     QuestionnaireFormComponent,
-    AideComponent
+    AideComponent,
+    AlertComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
