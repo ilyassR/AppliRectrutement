@@ -7,8 +7,12 @@ import { ResultatComponent }   from './resultat/resultat.component';
 import { QuestionnaireComponent }   from './questionnaire/questionnaire.component';
 import { AideComponent } from './aide/aide.component';
 
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_guards/index';
+
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'candidats', component: CandidatsComponent },
   { path: 'resultats', component: ResultatComponent },
