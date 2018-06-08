@@ -4,7 +4,20 @@ import { environment } from '../environments/environment';
 declare function require(path: string);
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+  <div class="container" >
+    <div class="card">
+    <div class="card-body">
+      <div id="grailsLogo" role="banner">
+        <a href="http://cgi.com"><img src="{{imageLogo}}" /></a>
+      </div>
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
+    </div>
+  </div>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

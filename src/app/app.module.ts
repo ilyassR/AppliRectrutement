@@ -29,6 +29,9 @@ import { LoginComponent } from './login/login.component';
 
 import { CandidatService } from './candidat.service';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
     QuestionnaireFormComponent,
     AideComponent,
     AlertComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
