@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { DataTableResource } from 'angular5-data-table';
 
-import { CandidatService } from '../candidat.service';
-import { Candidat } from '../candidat';
+import { CandidatService } from '../_services/candidat.service';
+import { Candidat } from '../_models/candidat';
 import { CANDIDATS } from '../mock-candidats';
 
 @Component({

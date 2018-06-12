@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { DataTableResource } from 'angular5-data-table';
 
-import { ResultatService } from '../resultat.service';
-import { Resultat } from '../resultat';
+import { ResultatService } from '../_services/resultat.service';
+import { Resultat } from '../_models/resultat';
 import { RESULTATS } from '../mock-resultats';
 
 @Component({

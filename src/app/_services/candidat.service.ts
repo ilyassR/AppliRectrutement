@@ -4,16 +4,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { Resultat } from './resultat';
-import { RESULTATS } from './mock-resultats';
+import { Candidat } from '../_models/candidat';
+import { CANDIDATS } from '../mock-candidats';
 
 @Injectable()
-export class ResultatService {
+export class CandidatService {
 
   constructor(private http: HttpClient) { }
 
-  getResultats(): Observable<Resultat[]> {
-        return of(RESULTATS);
+  getCandidats(): Observable<Candidat[]> {
+        return of(CANDIDATS);
   }
 
 }

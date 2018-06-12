@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { DataTableResource } from 'angular5-data-table';
 
-import { QuestionnaireService } from '../questionnaire.service';
-import { Questionnaire } from '../questionnaire';
+import { QuestionnaireService } from '../_services/questionnaire.service';
+import { Questionnaire } from '../_models/questionnaire';
 import { QUESTIONNAIRES } from '../mock-questionnaires';
 
 @Component({
