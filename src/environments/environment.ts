@@ -11,5 +11,6 @@ export const environment = {
   default_home_menu_candidats : 'Candidats',
   default_home_menu_tests : 'Questionnaires',
   default_home_menu_deco : 'Déconnection',
-  default_home_footer : 'Suivez-nous !'
+  default_home_footer : 'Suivez-nous !',
+  welcome_user_afteLoginSucces: 'Bienvenue '
 };

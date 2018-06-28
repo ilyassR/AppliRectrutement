@@ -11,20 +11,28 @@ declare function require(path: string);
 })
 export class HeaderComponent implements OnInit {
 
-   private msgHomeLabel = environment.default_home_label;
-    private msgHomeMenuResult = environment.default_home_menu_result;
-    private msgHomeMenuCandidats = environment.default_home_menu_candidats;
-    private msgHomeMenuTests = environment.default_home_menu_tests;
-    private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
+  private msgHomeLabel = environment.default_home_label;
+  private msgHomeMenuResult = environment.default_home_menu_result;
+  private msgHomeMenuCandidats = environment.default_home_menu_candidats;
+  private msgHomeMenuTests = environment.default_home_menu_tests;
+  private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
 
-    imageLogo = require('assets/images/logo.png');
-  
+  imageLogo = require('assets/images/logo.png');
+
   isLoggedIn$: Observable<boolean>;
 
   constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.authService.isLoggedIn.subscribe((value) => {
+      if (value) {
+        console.log(value);
+      }else if(localStorage.getItem('userPrincipal')){
+        console.log("else " + value);
+        this.authService.validateToken();
+      }
+      this.isLoggedIn$ = this.authService.isLoggedIn;
+    });
   }
 
   onLogout() {

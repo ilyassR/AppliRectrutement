@@ -17,7 +17,7 @@ export class CandidatService {
         return of(CANDIDATS);
   }*/
   getCandidats(): Observable<Candidat[]> {
-      return this.http.get<Candidat[]>( this.userUrl + '/candidats');
+      return this.http.get<Candidat[]>( this.userUrl + '/candidats/allcandidats');
   }
 
 }

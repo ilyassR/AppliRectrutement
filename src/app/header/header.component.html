@@ -1,5 +1,6 @@
 
     <nav *ngIf="isLoggedIn$ | async as isLoggedIn">
+        
         <a routerLink="/home">{{msgHomeLabel}}</a>
         <!-- Add if ROLE_ADMIN condition -->
         <a routerLink="/candidats">{{msgHomeMenuCandidats}}</a>
