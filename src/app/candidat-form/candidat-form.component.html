@@ -3,14 +3,23 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Saisissez les infromations du nouveau candidat !</h5>
-					<form class="form-horizontal" method="post" action="#">
+					<form [formGroup]="myForm" novalidate (ngSubmit)="save(f.value, f.valid)" class="form-horizontal">
 
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Pseudo *</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="pseudo" id="pseudo"  placeholder="Pseudo candidat"/>
+									<input formControlName="pseudo" type="text" class="form-control" [ngClass]="{
+										'is-valid': pseudo.valid,
+										'is-invalid': pseudo.invalid && (pseudo.dirty || pseudo.touched)
+										}" 
+										name="pseudo" id="pseudo"  placeholder="Pseudo candidat"/>
+								</div>
+								<div *ngIf="pseudo.errors  && (pseudo.dirty || pseudo.touched)" class="text-danger">
+									<small *ngIf="pseudo.errors.required"> Pseudo nom requis! </small>
+									<small *ngIf="pseudo.errors.minlength"> Pseudo nom doit contenir au moins 4 caractères! </small>
+									<small *ngIf="pseudo.errors.maxlength"> Pseudo nom doit contenir au plus 20 caractères! </small>
 								</div>
 							</div>
 						</div>
@@ -20,7 +29,14 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="nom" id="nom"  placeholder="Nom candidat"/>
+									<input formControlName="nom" class="form-control" [ngClass]="{
+										'is-valid': nom.valid,
+										'is-invalid': nom.invalid && (nom.dirty || nom.touched)
+										}" 
+										type="text" name="nom" id="nom"  placeholder="Nom candidat"/>
+								</div>
+								<div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="text-danger">
+									<small> Nom requis! </small>
 								</div>
 							</div>
 						</div>
@@ -30,7 +46,14 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="prenom" id="prenom"  placeholder="Prénom candidat"/>
+									<input formControlName="prenom" class="form-control" [ngClass]="{
+										'is-valid': prenom.valid,
+										'is-invalid': prenom.invalid && (prenom.dirty || prenom.touched)
+										}" 
+									 type="text" name="prenom" id="prenom"  placeholder="Prénom candidat"/>
+								</div>
+								<div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="text-danger">
+									<small> Prénom requis! </small>
 								</div>
 							</div>
 						</div>
@@ -40,7 +63,15 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Email candidat"/>
+									<input formControlName="email" class="form-control" [ngClass]="{
+										'is-valid': email.valid,
+										'is-invalid': email.invalid && (email.dirty || email.touched)
+										}" 
+									type="text" name="email" id="email"  placeholder="Email candidat"/>
+								</div>
+								<div *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+									<small *ngIf="email.errors.required"> Email requis! </small>
+									<small *ngIf="email.errors.pattern"> Email format invalide! </small>
 								</div>
 							</div>
 						</div>
@@ -50,7 +81,14 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telephone" id="telephone"  placeholder="Numéro de téléphone candidat"/>
+									<input formControlName="telephone" class="form-control" [ngClass]="{
+										'is-valid': telephone.valid && (telephone.dirty || telephone.touched),
+										'is-invalid': telephone.invalid && (telephone.dirty || telephone.touched)
+										}" 
+									 type="text" name="telephone" id="telephone"  placeholder="Numéro de téléphone candidat"/>
+								</div>
+								<div *ngIf="telephone.errors && telephone.dirty" class="text-danger">
+									<small *ngIf="telephone.errors.pattern"> Numéro de téléphone invalide! Fromats accéptés: (0670...) ou (+31670...)</small>
 								</div>
 							</div>
 						</div>
@@ -60,23 +98,39 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Mot de passe candidat"/>
+									<input formControlName="password" class="form-control" [ngClass]="{
+										'is-valid': password.valid,
+										'is-invalid': password.invalid && (password.dirty || password.touched)
+										}" 
+										type="password" name="password" id="password"  placeholder="Mot de passe candidat"/>
+								</div>
+								<div *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+									<small *ngIf="password.errors.required"> Mot de passe requis!</small>
+									<small *ngIf="password.errors.minlength"> Mot de passe doit avoir au minimum six caractères!</small>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirmation *</label>
+							<label for="confirmPassword" class="cols-sm-2 control-label">Confirmation *</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmation Mot de passe"/>
+									<input formControlName="confirmPassword" appConfirmEqualValidator="password" [ngClass]="{
+										'is-valid': confirmPassword.valid,
+										'is-invalid': confirmPassword.invalid && (password.dirty || password.touched)
+										}" 
+									type="password" class="form-control" name="confirmPassword" id="confirmPassword"  placeholder="Confirmation Mot de passe"/>
+								</div>
+								<div *ngIf="confirmPassword.errors && (confirmPassword.pending || confirmPassword.touched)" class="text-danger">
+									<small *ngIf="confirmPassword.errors.required"> Mot de passe requis!</small>
+									<small *ngIf="confirmPassword.errors.notEqual && !confirmPassword.errors.required"> La confirmation du mot de passe ne correspond pas!</small>
 								</div>
 							</div>
 						</div>
 
             <div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Niveau *</label>
+							<label for="Niveau" class="cols-sm-2 control-label">Niveau *</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -116,7 +170,7 @@
              </div>
 
 						<div class="form-group ">
-							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Créer</a>
+							<button type="submit" [disabled]="myForm.invalid">Créer</button>
 						</div>
 						
 					</form>

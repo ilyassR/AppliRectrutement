@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+
+/*
+** Forms & Forms validation
+*/
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -33,6 +39,8 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { ConfirmEqualValidatorDirective } from './_services/confirm-equal-validator.directive';
+
 
 @NgModule({
   declarations: [
@@ -48,11 +56,14 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     HeaderComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     DataTableModule,
     DataTablesModule,
