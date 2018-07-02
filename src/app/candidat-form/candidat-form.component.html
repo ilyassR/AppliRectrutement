@@ -3,7 +3,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Saisissez les infromations du nouveau candidat !</h5>
-					<form [formGroup]="myForm" novalidate (ngSubmit)="save(f.value, f.valid)" class="form-horizontal">
+					<form [formGroup]="myForm" novalidate (ngSubmit)="myForm.valid && register()" class="form-horizontal">
 
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Pseudo *</label>
@@ -134,43 +134,49 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-level-up fa-lg" aria-hidden="true"></i></span>
-									<select class="form-control form-control-sm">
-                    <option>Débutant</option>
-                    <option>Confirmé</option>
-                    <option>Expert</option>
+									<select formControlName="niveau" class="form-control form-control-sm">
+                    <option value="1">Débutant</option>
+                    <option value="2">Confirmé</option>
+                    <option value="3">Expert</option>
                   </select>
 								</div>
 							</div>
 						</div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label" for="exampleRadios1">
+              <input formControlName="compteStatus" class="form-check-input" type="radio" name="compteStatus" id="compteStatusOuvert" value="true" checked>
+              <label class="form-check-label" for="compteStatusOuvert">
                 Compte fermé
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
+              <input formControlName="compteStatus" class="form-check-input" type="radio" name="compteStatus" id="compteStatusFerme" value="false">
+              <label class="form-check-label" for="compteStatusFerme">
                 Compte ouvert
               </label>
             </div>
             
-             <div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Liste des tests disponibles *</label>
+             <div formGroupName="listTests" class="form-group">
+							<label for="tests" class="cols-sm-2 control-label">Liste des tests disponibles *</label>
 							<div class="cols-sm-10">
                 <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Compétences JAVA
-              </label>
-            </div>
+									<input formControlName="testJAVA" class="form-check-input" type="checkbox" value="JAVA" id="1">
+									<label class="form-check-label" for="competenceJava">
+										Compétences JAVA
+									</label>
+								</div>
+								<div class="form-check">
+									<input formControlName="testJEE" class="form-check-input" type="checkbox" value="J2EE" id="2">
+									<label class="form-check-label" for="competenceJ2EE">
+										Compétences J2EE
+									</label>
+								</div>
 							</div>
              </div>
 
 						<div class="form-group ">
-							<button type="submit" [disabled]="myForm.invalid">Créer</button>
+							<button class="w3-button w3-block w3-blue w3-hover-green w3-border w3-border-blue w3-round-large" type="submit" [disabled]="myForm.invalid">Créer</button>
 						</div>
 						
 					</form>

@@ -12,12 +12,13 @@ import { CANDIDATS } from '../mock-candidats';
 export class CandidatService {
   private userUrl = '/api';
   constructor(private http: HttpClient) { }
-/*
-  getCandidats(): Observable<Candidat[]> {
-        return of(CANDIDATS);
-  }*/
+
   getCandidats(): Observable<Candidat[]> {
       return this.http.get<Candidat[]>( this.userUrl + '/candidats/allcandidats');
+  }
+
+  create(candidat: Candidat) {
+    return this.http.post('/api/candidats/createCandidat', candidat);
   }
 
 }
