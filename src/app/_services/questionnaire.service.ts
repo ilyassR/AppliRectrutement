@@ -9,11 +9,13 @@ import { QUESTIONNAIRES } from '../mock-questionnaires';
 
 @Injectable()
 export class QuestionnaireService {
+  private qcmUrl = '/api';
 
   constructor(private http: HttpClient) { }
 
   getQuestionnaires(): Observable<Questionnaire[]> {
-        return of(QUESTIONNAIRES);
+    return this.http.get<Questionnaire[]>(this.qcmUrl + '/questionnaires/allQCMs');
+      //  return of(QUESTIONNAIRES);
   }
 
 }

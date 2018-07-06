@@ -7,7 +7,9 @@ import 'rxjs/add/operator/map';
 import { DataTableResource } from 'angular5-data-table';
 
 import { CandidatService } from '../_services/candidat.service';
+
 import { Candidat } from '../_models/candidat';
+
 import { CANDIDATS } from '../mock-candidats';
 
 @Component({
@@ -20,16 +22,19 @@ export class CandidatsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<Candidat> = new Subject();
 
+  /** Messages to child component CandidatForm */
   displayCandidatForm: boolean = false;
 
   newCandidatFrom(){
     this.displayCandidatForm = !this.displayCandidatForm;
   }
 
-  constructor(private candidatService:CandidatService ,private http: Http) { }
+  constructor(
+    private http: Http,
+    private candidatService:CandidatService
+    ) { }
 
   ngOnInit(){
-
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10

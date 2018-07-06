@@ -1,4 +1,4 @@
-import { Questionnaire } from './questionnaire';
+import { Questionnaire } from './index';
 
 export class Candidat {
     id: number;
@@ -11,5 +11,5 @@ export class Candidat {
     confirmPassword: string;
     niveau: number;
     compteStatus: boolean;
-    tests: boolean[];
+    questionnaires: Questionnaire[];
 }

@@ -14,11 +14,12 @@ export class CandidatService {
   constructor(private http: HttpClient) { }
 
   getCandidats(): Observable<Candidat[]> {
-      return this.http.get<Candidat[]>( this.userUrl + '/candidats/allcandidats');
+      return this.http.get<Candidat[]>( this.userUrl + '/users/allcandidats');
   }
 
   create(candidat: Candidat) {
-    return this.http.post('/api/candidats/createCandidat', candidat);
+    console.log(candidat);
+    return this.http.post('/api/users/createCandidat', candidat);
   }
 
 }
