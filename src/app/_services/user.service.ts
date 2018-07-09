@@ -9,15 +9,8 @@ import { UserPrincipal } from '../_models/userPrincipal';
 
 @Injectable()
 export class UserService {
-  private messageSource = new BehaviorSubject(localStorage.getItem('userPrincipal'));
-  currentPrincipalUser = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) { }
-
-  changeMessage(message: string) {
-    this.messageSource.next(message);
-  }
-
 
   getAll() {
     return this.http.get<User[]>('/api/users');

@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadUser();
-    this.userService.currentPrincipalUser.subscribe(message => this.msgWelcomeAuthUser = message);
-    this.userService.changeMessage(this.msgWelcomeAuthUser);
+  //  this.userService.currentPrincipalUser.subscribe(message => this.msgWelcomeAuthUser = message);
+  //  this.userService.changeMessage(this.msgWelcomeAuthUser);
     //this.msgWelcomeAuthUser = this.msgWelcomeAuthUser + localStorage.getItem('userPrincipal');
   }
 

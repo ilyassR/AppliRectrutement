@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService } from '../_services/index';
+import { AlertService, AuthenticationService, UserService } from '../_services/index';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
+    private userService: UserService,
     private alertService: AlertService) { }
 
   ngOnInit() {
@@ -33,11 +34,21 @@ export class LoginComponent implements OnInit {
       .subscribe(
       data => {
         this.router.navigate([this.returnUrl]);
+        this.loadUser();
       },
       error => {
         console.log("error");
         this.alertService.error(error);
         this.loading = false;
       });
+  }
+
+  private loadUser() {
+    this.userService.getUser().subscribe( res => {
+      localStorage.setItem('userPrincipal', `${res.firstName} ${res.lastName}[${res.authorities[0].authority}]`);
+      localStorage.setItem('userRole', `${res.authorities[0].authority}`);
+      console.log(localStorage.getItem('userRole'));
+    }
+    );
   }
 }

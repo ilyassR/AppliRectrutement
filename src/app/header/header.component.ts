@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../_services/authentication.service';
+import { Router } from '@angular/router';
 
 declare function require(path: string);
 @Component({
@@ -20,23 +21,41 @@ export class HeaderComponent implements OnInit {
   imageLogo = require('assets/images/logo.png');
 
   isLoggedIn$: Observable<boolean>;
+  userRole$: Observable<string>;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    private router:Router,
+    private authService: AuthenticationService
+    ) { }
 
   ngOnInit() {
     this.authService.isLoggedIn.subscribe((value) => {
       if (value) {
-        console.log(value);
+
       }else if(localStorage.getItem('userPrincipal')){
-        console.log("else " + value);
         this.authService.validateToken();
       }
       this.isLoggedIn$ = this.authService.isLoggedIn;
     });
+
+    this.authService.getUserRole.subscribe((value) => {
+      if (value) {
+
+      }else if(localStorage.getItem('userPrincipal')){
+        this.authService.validateToken();
+      }
+      this.userRole$ = this.authService.getUserRole;
+      console.log(this.userRole$);
+    });
   }
 
-  onLogout() {
+  logout() {
+    console.log("log out");
     this.authService.logout();
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.router.navigate(["/login"]);
   }
+
+  
 
 }

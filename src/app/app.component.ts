@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { environment } from '../environments/environment';
 
 import { HeaderComponent } from './header/header.component';
-import { UserService } from './_services/user.service';
+import { AuthenticationService } from './_services/authentication.service';
 
 declare function require(path: string);
 @Component({
@@ -13,7 +15,7 @@ declare function require(path: string);
     <div class="card-body">
       <div id="grailsLogo" role="banner">
         <a href="http://cgi.com"><img src="{{imageLogo}}" /></a>
-        <p style="color:green;font-size:70%;">{{msgWelcomeAuthUser}}</p>
+        <p *ngIf="authenticatedUser$ | async as authenticatedUser" style="color:green;font-size:70%;">{{authenticatedUser}}</p>
       </div>
       <app-header></app-header>
       <router-outlet></router-outlet>
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
   private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
   private msgHomeFooter = environment.default_home_footer;
   public msgWelcomeAuthUser: string;
+  private authenticatedUser$: Observable<string>;
 
   imageLogoTwitter = require('assets/images/logo_twitter.png');
   imageLogoLinkedin = require('assets/images/logo_linkedin.png');
@@ -43,7 +46,7 @@ export class AppComponent implements OnInit {
   imageLogo = require('assets/images/logo.png');
 
   constructor(
-    private userService: UserService
+    private authService: AuthenticationService
   ) {
   }
 
@@ -56,7 +59,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("App componenet Init");
-    this.userService.currentPrincipalUser.subscribe(message => this.msgWelcomeAuthUser = environment.welcome_user_afteLoginSucces + message);
+    this.authenticatedUser$ = this.authService.curentUser;
     //this.msgWelcomeAuthUser = localStorage.getItem('userPrincipal');
   }
 

@@ -16,12 +16,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'candidats', component: CandidatsComponent },
-  { path: 'resultats', component: ResultatComponent },
-  { path: 'questionnaires', component: QuestionnaireComponent },
-  { path: 'corrections', component: ResultatComponent },
-  { path: 'aide', component: AideComponent },
+  { path: 'candidats', component: CandidatsComponent, canActivate: [AuthGuard] },
+  { path: 'resultats', component: ResultatComponent, canActivate: [AuthGuard] },
+  { path: 'questionnaires', component: QuestionnaireComponent, canActivate: [AuthGuard] },
+  { path: 'corrections', component: ResultatComponent, canActivate: [AuthGuard] },
+  { path: 'aide', component: AideComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
+  { path: 'deconnexion', component: LoginComponent, canActivate: [AuthGuard]},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
