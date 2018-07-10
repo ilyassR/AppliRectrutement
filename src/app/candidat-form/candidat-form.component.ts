@@ -3,7 +3,6 @@ import { FormGroup, FormControl, FormBuilder, FormArray, ReactiveFormsModule, Va
 import { Router } from '@angular/router';
 
 import { AlertService, CandidatService, QuestionnaireService } from '../_services/index';
-import {Observable} from 'rxjs/Observable';
 
 import { Candidat, Questionnaire } from '../_models/index';
 

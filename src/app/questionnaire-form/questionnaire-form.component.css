@@ -53,7 +53,7 @@ input::-webkit-input-placeholder {
 }
 .form-control {
     height: auto!important;
-padding: 8px 12px !important;
+	padding: 8px 20px !important;
 }
 .input-group {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
@@ -65,7 +65,7 @@ padding: 8px 12px !important;
  	margin-top: 0px;
  	margin: 0 auto;
  	max-width: 800px;
-    padding: 10px 40px;
+    padding: 20px 80px;
 	background:#F2F2F2;
 	    color: #000000;
     text-shadow: none;

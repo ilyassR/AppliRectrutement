@@ -18,4 +18,8 @@ export class QuestionnaireService {
       //  return of(QUESTIONNAIRES);
   }
 
+  create(questionnaire: any) {
+    return this.http.post('/api/questionnaires/createQCM', questionnaire);
+  }
+
 }
