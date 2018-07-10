@@ -10,8 +10,7 @@ import { UserPrincipal } from '../_models/userPrincipal';
 export class AuthenticationService {
     public redirectUrl: string = '';
 
-    private currentPrincipalUser = new BehaviorSubject(localStorage.getItem('userPrincipal'));
-
+    private currentPrincipalUser = new BehaviorSubject<string>('');
     get curentUser() {
         return this.currentPrincipalUser.asObservable(); // {2}
     }
@@ -63,19 +62,19 @@ export class AuthenticationService {
 
     logout() {
         this.loggedIn.next(false);
+        this.userRole.next("");
+        this.currentPrincipalUser.next("");
         // remove user from local storage to log user out
-        localStorage.removeItem('userPrincipal');
         localStorage.removeItem('currentUser');
-        localStorage.removeItem('userRole');
     }
 
     validateToken() {
         console.log("validateToken");
         this.loggedIn.next(true);
-        this.getUser().subscribe(authUser => {
+  /*      this.getUser().subscribe(authUser => {
                     console.log(authUser);
                     this.userRole.next(authUser.authorities[0].authority)
                     this.currentPrincipalUser.next(authUser.username);
-                });
+                }); */
     }
 }

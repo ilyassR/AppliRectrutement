@@ -11,7 +11,7 @@
         <!-- Add if ROLE_CORRECTEUR condition -->
         <a *ngIf="roleUser == 'ROLE_CORRECTEUR'" routerLink="/corrections">Correction</a>
 
-        <a *ngIf="roleUser == 'ROLE_CANDIDAT' || 'ROLE_ADMIN'" routerLink="/aide">Aide</a>
+        <a *ngIf="roleUser == 'ROLE_CORRECTEUR' || roleUser == 'ROLE_ADMIN'" routerLink="/aide">Aide</a>
         <a routerLink="/deconnexion" (click)="logout()">{{msgHomeMenuDeconnexion}}</a>
         </nav>
     </nav>

@@ -34,21 +34,11 @@ export class LoginComponent implements OnInit {
       .subscribe(
       data => {
         this.router.navigate([this.returnUrl]);
-        this.loadUser();
       },
       error => {
         console.log("error");
         this.alertService.error(error);
         this.loading = false;
       });
-  }
-
-  private loadUser() {
-    this.userService.getUser().subscribe( res => {
-      localStorage.setItem('userPrincipal', `${res.firstName} ${res.lastName}[${res.authorities[0].authority}]`);
-      localStorage.setItem('userRole', `${res.authorities[0].authority}`);
-      console.log(localStorage.getItem('userRole'));
-    }
-    );
   }
 }

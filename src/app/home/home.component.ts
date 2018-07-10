@@ -34,21 +34,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadUser();
-  //  this.userService.currentPrincipalUser.subscribe(message => this.msgWelcomeAuthUser = message);
-  //  this.userService.changeMessage(this.msgWelcomeAuthUser);
-    //this.msgWelcomeAuthUser = this.msgWelcomeAuthUser + localStorage.getItem('userPrincipal');
+    
   }
 
   deleteUser(id: number) {
     this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-  }
-
-  private loadUser() {
-    this.userService.getUser().subscribe( res => {
-      localStorage.setItem('userPrincipal', `${res.firstName} ${res.lastName}[${res.authorities[0].authority}]`);
-    }
-    );
   }
 
   private loadAllUsers() {

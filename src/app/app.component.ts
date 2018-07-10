@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
   private msgHomeMenuTests = environment.default_home_menu_tests;
   private msgHomeMenuDeconnexion = environment.default_home_menu_deco;
   private msgHomeFooter = environment.default_home_footer;
-  public msgWelcomeAuthUser: string;
   private authenticatedUser$: Observable<string>;
 
   imageLogoTwitter = require('assets/images/logo_twitter.png');
@@ -50,17 +49,9 @@ export class AppComponent implements OnInit {
   ) {
   }
 
-/*
-  @ViewChild(HomeComponent) homeChild;
-
-  ngAfterViewInit(){
-    this.msgWelcomeAuthUser = this.homeChild.msgWelcomeAuthUser;
-  }*/
-
   ngOnInit() {
     console.log("App componenet Init");
     this.authenticatedUser$ = this.authService.curentUser;
-    //this.msgWelcomeAuthUser = localStorage.getItem('userPrincipal');
   }
 
 }
