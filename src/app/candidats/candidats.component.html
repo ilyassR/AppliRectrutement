@@ -5,7 +5,9 @@
 <table datatable [dtOptions]="dtOptions" class="row-border hover">
   <thead>
     <tr>
-      <th>ID</th>
+      <div [hidden]="true">
+        <th>ID</th>
+      </div>
       <th>Pseudo</th>
       <th>Nom</th>
       <th>Prénom</th>
@@ -15,7 +17,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let candidat of candidats">
+        <div [hidden]="true">
             <td>{{candidat.id}}</td>
+        </div>
             <td>{{candidat.pseudo}}</td>
             <td>{{candidat.nom}}</td>
             <td>{{candidat.prenom}}</td>

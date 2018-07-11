@@ -15,7 +15,7 @@ declare function require(path: string);
     <div class="card-body">
       <div id="grailsLogo" role="banner">
         <a href="http://cgi.com"><img src="{{imageLogo}}" /></a>
-        <p *ngIf="authenticatedUser$ | async as authenticatedUser" style="color:green;font-size:70%;">{{authenticatedUser}}</p>
+        <p *ngIf="authenticatedUser$ | async as authenticatedUser" style="color:green;font-size:70%;">Bienvenue {{authenticatedUser}}</p>
       </div>
       <app-header></app-header>
       <router-outlet></router-outlet>
